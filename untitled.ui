@@ -2,73 +2,183 @@
 <ui version="4.0">
  <class>Dialog</class>
  <widget class="QDialog" name="Dialog">
+  <property name="enabled">
+   <bool>true</bool>
+  </property>
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
+    <width>325</width>
     <height>300</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <widget class="QPushButton" name="firstPositionButton">
+  <widget class="QGroupBox" name="groupBox">
    <property name="geometry">
     <rect>
-     <x>250</x>
-     <y>70</y>
-     <width>131</width>
-     <height>23</height>
+     <x>10</x>
+     <y>60</y>
+     <width>241</width>
+     <height>91</height>
     </rect>
    </property>
-   <property name="toolTipDuration">
-    <number>-1</number>
+   <property name="title">
+    <string>키 옵션</string>
+   </property>
+   <widget class="QLabel" name="label_1">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>30</y>
+      <width>211</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>첫번째 좌표 설정 : &quot;F1&quot; 또는 &quot;Z&quot; 입력</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>60</y>
+      <width>221</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>두번째 좌표 설정 : &quot;F2&quot; 또는 &quot;X&quot; 입력</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QLabel" name="title">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>0</y>
+     <width>201</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>19</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
    </property>
    <property name="text">
-    <string>좌측상단 위치 클릭</string>
+    <string>EBook To PDF</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="lastPositionButton">
+  <widget class="QLabel" name="label_3">
    <property name="geometry">
     <rect>
-     <x>250</x>
-     <y>110</y>
-     <width>131</width>
+     <x>20</x>
+     <y>160</y>
+     <width>91</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>좌측 상단 좌표:</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_4">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>180</y>
+     <width>91</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>우측 하단 좌표:</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="firstPos_label">
+   <property name="geometry">
+    <rect>
+     <x>120</x>
+     <y>160</y>
+     <width>121</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>(0,0)</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lstPos_label">
+   <property name="geometry">
+    <rect>
+     <x>120</x>
+     <y>180</y>
+     <width>121</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>(0,0)</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="convertStart_btn">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>270</y>
+     <width>281</width>
      <height>23</height>
     </rect>
    </property>
-   <property name="toolTipDuration">
-    <number>-1</number>
-   </property>
    <property name="text">
-    <string>우측하단 위치 클릭</string>
+    <string>변환 시작</string>
    </property>
   </widget>
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>30</x>
-     <y>120</y>
+     <x>20</x>
+     <y>210</y>
      <width>71</width>
      <height>16</height>
     </rect>
    </property>
    <property name="text">
-    <string>첫번째 좌표</string>
+    <string>페이지 수</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_2">
+  <widget class="QLineEdit" name="totalPage">
    <property name="geometry">
     <rect>
-     <x>30</x>
-     <y>150</y>
-     <width>71</width>
-     <height>16</height>
+     <x>100</x>
+     <y>210</y>
+     <width>201</width>
+     <height>20</height>
     </rect>
    </property>
    <property name="text">
-    <string>두번째 좌표</string>
+    <string/>
+   </property>
+   <property name="placeholderText">
+    <string>총 페이지 수 입력</string>
    </property>
   </widget>
  </widget>
