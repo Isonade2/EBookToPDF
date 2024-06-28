@@ -37,6 +37,9 @@ class WindowClass(QMainWindow, form_class) :
 
         self.setEnabled(False)
         try:
+            #값이 비어있지 않고 숫자인지 확인
+            if self.totalPage.text() == '' or not self.totalPage.text().isdigit():
+                raise ValueError("페이지 수를 입력하세요.")
         
             left_top_x = pos[0][0]
             left_top_y = pos[0][1]
@@ -76,8 +79,8 @@ class WindowClass(QMainWindow, form_class) :
                 os.remove(os.path.join(src_dir, f))
             os.rmdir(src_dir)
 
-        # except Exception as e:
-        #     print(e)
+        except Exception as e:
+            print(e)
         finally:
             self.setEnabled(True)
 
