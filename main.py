@@ -34,36 +34,54 @@ class WindowClass(QMainWindow, form_class) :
     def convertStart(self):
         print("convertStart")
         print(pos)
-    
-        left_top_x = pos[0][0]
-        left_top_y = pos[0][1]
-        right_bottom_x = pos[1][0]
-        right_bottom_y = pos[1][1]
-        distance_x = right_bottom_x - left_top_x
-        distance_y = right_bottom_y - left_top_y
 
+        self.setEnabled(False)
+        try:
         
+            left_top_x = pos[0][0]
+            left_top_y = pos[0][1]
+            right_bottom_x = pos[1][0]
+            right_bottom_y = pos[1][1]
+            distance_x = right_bottom_x - left_top_x
+            distance_y = right_bottom_y - left_top_y
 
-        print()
-        src_dir = os.getcwd() + "\\dist"            
-        if not os.path.exists(src_dir):
-            os.makedirs(src_dir)
-        
-        total_pages = self.totalPage.text()
-        
-        for i in range(int(total_pages)):
-            pyautogui.screenshot(region=(left_top_x, left_top_y, distance_x, distance_y)).save(src_dir + f"\\{i}.png")
+            print()
+
+            #임시폴더 생성
+            src_dir = os.getcwd() + "\\dist"            
+            if not os.path.exists(src_dir):
+                os.makedirs(src_dir)
+            
+            
+            
+            #캡처
+            total_pages = self.totalPage.text()
+
+            pyautogui.click(left_top_x+(distance_x/2), left_top_y+(distance_y/2))
+
+            for i in range(int(total_pages)):
+                pyautogui.screenshot(region=(left_top_x, left_top_y, distance_x, distance_y)).save(src_dir + f"\\{i}.png")
+                pyautogui.press('right')
+                pyautogui.sleep(0.2)
+
+            #pdf로 변환
+            tgt_dir = os.getcwd()
+
+            img_files = [os.path.join(src_dir, nm) for nm in os.listdir(src_dir)]
+            with open(tgt_dir + "\\test.pdf", "wb") as pdf_file:
+                pdf_file.write(convert(img_files))
+
+            #임시폴더 삭제
+            for f in os.listdir(src_dir):
+                os.remove(os.path.join(src_dir, f))
+            os.rmdir(src_dir)
+
+        # except Exception as e:
+        #     print(e)
+        finally:
+            self.setEnabled(True)
 
 
-
-        # src_dir = os.getcwd() + "\\dist"
-        # tgt_dir = os.getcwd()
-
-        # img_files = [os.path.join(src_dir, nm) for nm in os.listdir(src_dir)]
-        # with open(tgt_dir + "\\test.pdf", "wb") as pdf_file:
-        #     pdf_file.write(convert(img_files))
-
-    
     
 
         
